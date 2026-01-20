@@ -69,3 +69,35 @@ cursor:pointer
 #songList li:hover{
 background:#222
 }
+.volume{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:10px;
+margin-bottom:10px
+}
+
+@media(max-width:768px){
+.app{
+flex-direction:column
+}
+.sidebar{
+width:100%;
+display:flex;
+overflow-x:auto
+}
+.sidebar ul{
+display:flex;
+gap:10px
+}
+.main{
+padding:10px
+}
+.now-playing img{
+width:150px;
+height:150px
+}
+.controls button{
+padding:8px
+}
+}
