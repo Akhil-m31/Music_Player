@@ -1,8 +1,12 @@
 const playlistList=document.getElementById("playlistList")
 const newPlaylistBtn=document.getElementById("newPlaylist")
 
-let playlists={
+let playlists=JSON.parse(localStorage.getItem("playlists"))||{
 "All Songs":[...songs]
+}
+
+function savePlaylists(){
+localStorage.setItem("playlists",JSON.stringify(playlists))
 }
 
 function renderPlaylists(){
@@ -21,8 +25,9 @@ playlistList.appendChild(li)
 
 newPlaylistBtn.onclick=()=>{
 const name=prompt("Playlist name?")
-if(name){
+if(name && !playlists[name]){
 playlists[name]=[]
+savePlaylists()
 renderPlaylists()
 }
 }
