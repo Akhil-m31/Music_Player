@@ -1,0 +1,71 @@
+body{
+margin:0;
+font-family:Arial,Helvetica,sans-serif;
+background:#121212;
+color:white
+}
+.app{
+display:flex;
+height:100vh
+}
+.sidebar{
+width:220px;
+background:#000;
+padding:15px
+}
+.sidebar h2{
+margin-top:0
+}
+.sidebar ul{
+list-style:none;
+padding:0
+}
+.sidebar li{
+padding:8px;
+cursor:pointer
+}
+.sidebar li:hover{
+background:#222
+}
+.main{
+flex:1;
+padding:20px;
+overflow:auto
+}
+.now-playing{
+text-align:center
+}
+.now-playing img{
+width:200px;
+height:200px;
+border-radius:10px;
+object-fit:cover
+}
+.controls{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:10px;
+margin:15px 0
+}
+button{
+background:#1db954;
+border:none;
+padding:10px 15px;
+border-radius:50%;
+cursor:pointer
+}
+input[type=range]{
+width:200px
+}
+#songList{
+list-style:none;
+padding:0
+}
+#songList li{
+padding:8px;
+cursor:pointer
+}
+#songList li:hover{
+background:#222
+}
