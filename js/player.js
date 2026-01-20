@@ -4,7 +4,8 @@ const nextBtn=document.getElementById("next")
 const prevBtn=document.getElementById("prev")
 const shuffleBtn=document.getElementById("shuffle")
 const repeatBtn=document.getElementById("repeat")
-const seek=document.getElementById("seek")
+const volume=document.getElementById("volume")
+const muteBtn=document.getElementById("mute")
 const title=document.getElementById("title")
 const artist=document.getElementById("artist")
 const cover=document.getElementById("cover")
@@ -18,10 +19,14 @@ let repeatMode=0
 songList.innerHTML=""
 queue.forEach((s,i)=>{
 const li=document.createElement("li")
-li.textContent=s.title+" - "+s.artist
+li.innerHTML=`${s.title} - ${s.artist} <button data-id="${i}">＋</button>`
 li.onclick=()=>{
 index=i
 loadSong()
+}
+li.querySelector("button").onclick=e=>{
+e.stopPropagation()
+addToPlaylist(s)
 }
 songList.appendChild(li)
 })
@@ -83,10 +88,21 @@ nextSong()
 }
 }
 
-audio.ontimeupdate=()=>{
-seek.value=(audio.currentTime/audio.duration||0)*100
+volume.oninput=()=>{
+audio.volume=volume.value
+muteBtn.textContent=audio.volume==0?"🔇":"🔊"
 }
 
-seek.oninput=()=>{
-audio.currentTime=(seek.value/100)*audio.duration
+muteBtn.onclick=()=>{
+audio.muted=!audio.muted
+muteBtn.textContent=audio.muted?"🔇":"🔊"
+}
+
+function addToPlaylist(song){
+const name=prompt("Add to which playlist?")
+if(playlists[name]){
+playlists[name].push(song)
+savePlaylists()
+alert("Added to "+name)
+}
 }
