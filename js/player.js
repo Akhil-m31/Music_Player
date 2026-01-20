@@ -12,12 +12,11 @@ const cover = document.getElementById("cover")
 const songList = document.getElementById("songList")
 const search = document.getElementById("search")
 
-let queue = []
 let index = 0
 let isShuffle = false
 let repeatMode = 0
 let renderedCount = 0
-const CHUNK = 50  // lazy load 50 songs at a time
+const CHUNK = 50  // lazy-load 50 songs at a time
 
 // ------------------- SONG LIST RENDER -------------------
 function renderSongList(filteredSongs = queue, reset = true) {
