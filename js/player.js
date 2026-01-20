@@ -12,7 +12,7 @@ const cover=document.getElementById("cover")
 const songList=document.getElementById("songList")
 const search=document.getElementById("search")
 
-let queue=[...songs]
+let queue=[]
 let index=0
 let isShuffle=false
 let repeatMode=0
