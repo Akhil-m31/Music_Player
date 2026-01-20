@@ -1,4 +1,5 @@
-let songs = [];  // will hold all songs from songs.json
+let songs = [];  // All songs
+let queue = [];  // Player queue
 
 fetch("songs.json")
   .then(res => res.json())
@@ -12,7 +13,7 @@ fetch("songs.json")
       cover: "assets/images/default.jpg"
     }));
 
-    queue = [...songs];  // fill player queue
-    renderSongList();     // render the playlist
+    queue = [...songs];       // fill player queue
+    renderSongList();         // render first chunk
   })
   .catch(err => console.error("Error loading songs.json:", err));
